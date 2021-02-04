@@ -153,6 +153,7 @@ bool isValidResultString(string results) {
     int rCount = 0;
     int arrayIndex = -1;
 
+    // Anything less than 6 chars is invalid.  Shouldnt the algo figure this out?
     if (results.length() < 6) {
         boolString = false;
         return boolString;
@@ -344,11 +345,11 @@ int extractNumber( string commands, size_t index, bool& isValid )
 
     // the number should be made up of digits
     while( index < commands.length() && (commands.at(index) >= '0' && commands.at(index) <= '9') ) {
-    // extract one digit and add it to the cumulative value
-    // held in quantity "123" ---> 123
-    int digit = commands.at( index ) - '0';
-    quantity = quantity * 10 + digit;
-    index = index + 1;
+        // extract one digit and add it to the cumulative value
+        // held in quantity "123" ---> 123
+        int digit = commands.at( index ) - '0';
+        quantity = quantity * 10 + digit;
+        index = index + 1;
     }
 
     // once we run out of digits to consume, the cumulative quantity
